@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,50 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhereDidIPark" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7PR-ER-vLY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opI-YZ-RRc">
+                                <rect key="frame" x="0.0" y="729" width="375" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aYN-I5-dao"/>
+                                    <barButtonItem title="Park my car!" id="pzO-ue-bcL">
+                                        <connections>
+                                            <action selector="parkOrFindMyCarButton:" destination="BYZ-38-t0r" id="YvI-AO-iFh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4km-5Q-R1u"/>
+                                    <barButtonItem systemItem="action" id="nxu-Jj-bon"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="opI-YZ-RRc" firstAttribute="top" secondItem="7PR-ER-vLY" secondAttribute="bottom" id="9Wz-Y2-Nu9"/>
+                            <constraint firstItem="opI-YZ-RRc" firstAttribute="top" secondItem="7PR-ER-vLY" secondAttribute="bottom" id="DT6-4T-0xu"/>
+                            <constraint firstItem="opI-YZ-RRc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F26-37-5bz"/>
+                            <constraint firstItem="7PR-ER-vLY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="M43-WW-MZy"/>
+                            <constraint firstItem="7PR-ER-vLY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ate-Km-uai"/>
+                            <constraint firstItem="7PR-ER-vLY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="byd-D5-uCH"/>
+                            <constraint firstItem="opI-YZ-RRc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cco-Cq-xvs"/>
+                            <constraint firstItem="opI-YZ-RRc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cd5-WS-ssn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="actionOutlet" destination="nxu-Jj-bon" id="RJL-PU-1tF"/>
+                        <outlet property="parkOrFindMyCarOutlet" destination="pzO-ue-bcL" id="L1y-bE-IQd"/>
+                        <outlet property="theMapView" destination="7PR-ER-vLY" id="zGx-Sz-2Vc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="131.52709359605913"/>
         </scene>
     </scenes>
 </document>
